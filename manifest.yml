@@ -1,0 +1,34 @@
+display_information:
+  name: MCP Host
+  description: A Slack bot that integrates with MCP servers and provides LLM-powered interactions
+  background_color: "#2c2d30"
+
+features:
+  bot_user:
+    display_name: MCP Agent
+    always_online: true
+
+oauth_config:
+  scopes:
+    bot:
+      - chat:write
+      - im:history
+      - im:write
+      - channels:history
+      - channels:read
+      - app_mentions:read
+      - reactions:write
+
+settings:
+  event_subscriptions:
+    request_url: https://slack-mcp-host.<your-worker-subdomain>.workers.dev/slack/events
+    bot_events:
+      - message.channels
+      - message.im
+      - app_mention
+  interactivity:
+    is_enabled: true
+    request_url: https://your-domain.com/slack/events
+  org_deploy_enabled: false
+  socket_mode_enabled: false
+  token_rotation_enabled: false 

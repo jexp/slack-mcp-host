@@ -1,0 +1,34 @@
+[project]
+name = "slack-mcp-host"
+version = "0.1.0"
+description = "A Slack bot that integrates with MCP servers and provides LLM-powered interactions"
+requires-python = ">=3.11"
+dependencies = [
+    "fastapi>=0.109.0",
+    "slack-sdk>=3.27.0",
+    "fastmcp>=0.1.0",
+    "openai>=1.12.0",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.metadata]
+allow-direct-references = true
+
+[tool.hatch.build.targets.wheel]
+packages = ["src"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.ruff.lint]
+select = [
+    "E",   # pycodestyle errors
+    "W",   # pycodestyle warnings
+    "F",   # pyflakes
+    "I",   # isort
+    "B",   # flake8-bugbear
+] 

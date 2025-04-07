@@ -1,0 +1,17 @@
+name = "slack-mcp-host"
+main = "src/api.py"
+compatibility_date = "2024-01-01"
+
+[vars]
+# These will be set in the Cloudflare dashboard or via wrangler
+SLACK_API_KEY = ""
+OPENAI_API_KEY = ""
+OPENAI_BASE_URL = "https://api.openai.com/v1"
+OPENAI_MODEL = "gpt-4"
+
+# MCP server configurations
+SLACK_MCP_NEO4J_MOVIES = "uvx mcp-neo4j-cypher --url neo4j+s://demo.neo4jlabs.com --username movies --password movies"
+SLACK_MCP_TIME = "uvx mcp-server-time"
+
+[build]
+command = "uv pip install -e ." 
